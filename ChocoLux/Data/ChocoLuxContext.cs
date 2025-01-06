@@ -14,5 +14,9 @@ namespace ChocoLux.Data
 
         public DbSet<Testimonial> Testimonial { get; set; } = default!;
 
+        public DbSet<Chocolate> Chocolate { get; set; } = default!;
+
+        public DbSet<Social> Social { get; set; } = default!;
+
     }
 }
