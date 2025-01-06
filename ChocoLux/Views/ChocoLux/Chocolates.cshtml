@@ -3,6 +3,8 @@
 	ViewData["Title"] = "ChocoLux";
 }
 
+@model IEnumerable<ChocoLux.DataModels.Chocolate>
+
 <!-- chocolate section -->
 <section class="chocolate_section ">
 
@@ -20,7 +22,52 @@
 	<div class="container">
 		<div class="chocolate_container">
 
-			<div class="box">
+			@{
+				if(Model!=null)
+				{
+					foreach(var data in Model)
+					{
+						<div class="box">
+							<div class="img-box">
+								<img src="@data.ChocolateImage" alt="">
+							</div>
+							<div class="detail-box">
+								<h6>
+									@data.ChocolateName
+								</h6>
+								<h5>
+									$@data.ChocolatePrice
+								</h5>
+								<a href="">
+									BUY NOW
+								</a>
+							</div>
+						</div>
+					}
+
+					foreach(var data in Model)
+					{
+						<div class="box">
+							<div class="img-box">
+								<img src="@data.ChocolateImage" alt="">
+							</div>
+							<div class="detail-box">
+								<h6>
+									@data.ChocolateName
+								</h6>
+								<h5>
+									$@data.ChocolatePrice
+								</h5>
+								<a href="">
+									BUY NOW
+								</a>
+							</div>
+						</div>
+					}
+				}
+			}
+
+			@* <div class="box">
 				<div class="img-box">
 					<img src="images/chocolate1.png" alt="">
 				</div>
@@ -120,7 +167,7 @@
 						BUY NOW
 					</a>
 				</div>
-			</div>
+			</div> *@
 
 		</div>
 	</div>

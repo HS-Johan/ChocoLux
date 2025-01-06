@@ -26,7 +26,9 @@ namespace ChocoLux.Controllers
 
         public IActionResult Chocolates()
         {
-            return View();
+            var data = _context.Chocolate.ToList();
+
+            return View(data);
         }
         public IActionResult Testimonial()
         {
