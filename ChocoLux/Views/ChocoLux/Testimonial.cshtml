@@ -3,6 +3,8 @@
 	ViewData["Title"] = "ChocoLux";
 }
 
+@model IEnumerable<ChocoLux.DataModels.Testimonial>
+
 <!-- client section -->
 <section class="client_section">
 	<div class="container-fluid">
@@ -21,7 +23,58 @@
 					</div>
 					<div id="customCarousel2" class="carousel slide" data-ride="carousel">
 						<div class="carousel-inner">
-							<div class="carousel-item active">
+
+							@{
+								if (Model != null)
+								{
+									int johan = 0;
+									foreach (var data in Model)
+									{
+										if (johan == 0)
+										{
+											<div class="carousel-item active">
+												<div class="box">
+													<div class="img-box">
+														<img src="@data.TestimonialThumbnail" alt="">
+													</div>
+													<div class="detail-box">
+														<h4>
+															@data.TestimonialTitle
+														</h4>
+														<p>
+															@data.TestimonialDescription
+														</p>
+														<i class="fa fa-quote-left" aria-hidden="true"></i>
+													</div>
+												</div>
+											</div>
+										}
+										else
+										{
+											<div class="carousel-item">
+												<div class="box">
+													<div class="img-box">
+														<img src="@data.TestimonialThumbnail" alt="">
+													</div>
+													<div class="detail-box">
+														<h4>
+															@data.TestimonialTitle
+														</h4>
+														<p>
+															@data.TestimonialDescription
+														</p>
+														<i class="fa fa-quote-left" aria-hidden="true"></i>
+													</div>
+												</div>
+											</div>
+										}
+
+										johan++;
+									}
+								}
+							}
+
+							@* <div class="carousel-item active">
 								<div class="box">
 									<div class="img-box">
 										<img src="images/client-img.jpg" alt="">
@@ -36,39 +89,8 @@
 										<i class="fa fa-quote-left" aria-hidden="true"></i>
 									</div>
 								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="box">
-									<div class="img-box">
-										<img src="images/client-img.jpg" alt="">
-									</div>
-									<div class="detail-box">
-										<h4>
-											Gero Miliya
-										</h4>
-										<p>
-											long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it haslong established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it haslong established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has
-										</p>
-										<i class="fa fa-quote-left" aria-hidden="true"></i>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="box">
-									<div class="img-box">
-										<img src="images/client-img.jpg" alt="">
-									</div>
-									<div class="detail-box">
-										<h4>
-											Gero Miliya
-										</h4>
-										<p>
-											long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it haslong established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it haslong established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has
-										</p>
-										<i class="fa fa-quote-left" aria-hidden="true"></i>
-									</div>
-								</div>
-							</div>
+							</div> *@
+
 						</div>
 						<div class="carousel_btn-box">
 							<a class="carousel-control-prev" href="#customCarousel2" role="button" data-slide="prev">

@@ -30,7 +30,9 @@ namespace ChocoLux.Controllers
         }
         public IActionResult Testimonial()
         {
-            return View();
+            var data = _context.Testimonial.ToList();
+
+            return View(data);
         }
 
         public IActionResult ContactUs()
