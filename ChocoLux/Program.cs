@@ -1,4 +1,12 @@
+using ChocoLux.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<ChocoLuxContext>(options => options.UseSqlServer(
+    builder.Configuration.GetConnectionString("OurProjectisHeroConnection") ?? throw new InvalidOperationException("Database Can't Be found!!")
+    )
+);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
