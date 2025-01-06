@@ -3,6 +3,7 @@ using ChocoLux.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ChocoLux.Migrations
 {
     [DbContext(typeof(ChocoLuxContext))]
-    partial class ChocoLuxContextModelSnapshot : ModelSnapshot
+    [Migration("20250106015451_Testimonial_06Jan25_v2")]
+    partial class Testimonial_06Jan25_v2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,9 +59,6 @@ namespace ChocoLux.Migrations
 
                     b.Property<string>("TestimonialDescription")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TestimonialIsActive")
-                        .HasColumnType("bit");
 
                     b.Property<string>("TestimonialThumbnail")
                         .HasColumnType("nvarchar(max)");

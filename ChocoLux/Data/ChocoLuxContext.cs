@@ -12,5 +12,7 @@ namespace ChocoLux.Data
 
         public DbSet<ContactUs> ContactUs { get; set; } = default!;
 
+        public DbSet<Testimonial> Testimonial { get; set; } = default!;
+
     }
 }
