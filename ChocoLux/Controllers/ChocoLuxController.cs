@@ -1,5 +1,6 @@
 ﻿using ChocoLux.Data;
 using ChocoLux.DataModels;
+using ChocoLux.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,7 +17,13 @@ namespace ChocoLux.Controllers
 
         public IActionResult Home()
         {
-            return View();
+            var AllData = new HomePageVM();
+
+            AllData.Chocolates = _context.Chocolate.Where(obj => obj.ChocolateIsActive == true && obj.ChocolateAmmount > 0).Take(3).ToList();
+
+            AllData.testimonials = _context.Testimonial.Where(obj => obj.TestimonialIsActive == true).ToList();
+
+            return View(AllData);
         }
 
         public IActionResult About()

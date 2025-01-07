@@ -3,8 +3,9 @@
 	ViewData["Title"] = "ChocoLux";
 }
 
-<div class="hero_area">
+@model ChocoLux.ViewModel.HomePageVM
 
+<div class="hero_area">
 	<!-- slider section -->
 	<div class="hero_area">
 		<section class="slider_section ">
@@ -106,7 +107,6 @@
 		</section>
 	</div>
 	<!-- end slider section -->
-
 </div>
 
 <!-- about section -->
@@ -140,6 +140,7 @@
 	</div>
 </section>
 <!-- end about section -->
+
 <!-- chocolate section -->
 <section class="chocolate_section ">
 	<div class="container">
@@ -154,106 +155,56 @@
 	</div>
 	<div class="container">
 		<div class="chocolate_container">
-			<div class="box">
-				<div class="img-box">
-					<img src="images/chocolate1.png" alt="">
-				</div>
-				<div class="detail-box">
-					<h6>
-						Yummy <span>chocolate</span>
-					</h6>
-					<h5>
-						$5.0
-					</h5>
-					<a href="">
-						BUY NOW
-					</a>
-				</div>
-			</div>
-			<div class="box">
-				<div class="img-box">
-					<img src="images/chocolate2.png" alt="">
-				</div>
-				<div class="detail-box">
-					<h6>
-						Yummy <span>chocolate</span>
-					</h6>
-					<h5>
-						$5.0
-					</h5>
-					<a href="">
-						BUY NOW
-					</a>
-				</div>
-			</div>
-			<div class="box">
-				<div class="img-box">
-					<img src="images/chocolate3.png" alt="">
-				</div>
-				<div class="detail-box">
-					<h6>
-						Yummy <span>chocolate</span>
-					</h6>
-					<h5>
-						$5.0
-					</h5>
-					<a href="">
-						BUY NOW
-					</a>
-				</div>
-			</div>
-			<div class="box">
-				<div class="img-box">
-					<img src="images/chocolate1.png" alt="">
-				</div>
-				<div class="detail-box">
-					<h6>
-						Yummy <span>chocolate</span>
-					</h6>
-					<h5>
-						$5.0
-					</h5>
-					<a href="">
-						BUY NOW
-					</a>
-				</div>
-			</div>
-			<div class="box">
-				<div class="img-box">
-					<img src="images/chocolate2.png" alt="">
-				</div>
-				<div class="detail-box">
-					<h6>
-						Yummy <span>chocolate</span>
-					</h6>
-					<h5>
-						$5.0
-					</h5>
-					<a href="">
-						BUY NOW
-					</a>
-				</div>
-			</div>
-			<div class="box">
-				<div class="img-box">
-					<img src="images/chocolate3.png" alt="">
-				</div>
-				<div class="detail-box">
-					<h6>
-						Yummy <span>chocolate</span>
-					</h6>
-					<h5>
-						$5.0
-					</h5>
-					<a href="">
-						BUY NOW
-					</a>
-				</div>
-			</div>
+
+			@{
+				if( Model.Chocolates.Count() > 0 )
+				{
+					foreach(var data in Model.Chocolates)
+					{
+						<div class="box">
+							<div class="img-box">
+								<img src="@data.ChocolateImage" alt="">
+							</div>
+							<div class="detail-box">
+								<h6>
+									@data.ChocolateName
+								</h6>
+								<h5>
+									$@data.ChocolatePrice
+								</h5>
+								<a href="">
+									BUY NOW
+								</a>
+							</div>
+						</div>
+					}
+					foreach(var data in Model.Chocolates)
+					{
+						<div class="box">
+							<div class="img-box">
+								<img src="@data.ChocolateImage" alt="">
+							</div>
+							<div class="detail-box">
+								<h6>
+									@data.ChocolateName
+								</h6>
+								<h5>
+									$@data.ChocolatePrice
+								</h5>
+								<a href="">
+									BUY NOW
+								</a>
+							</div>
+						</div>
+					}
+				}
+			}
+
 		</div>
 	</div>
 </section>
 <!-- end chocolate section -->
+
 <!-- offer section -->
 <section class="offer_section layout_padding">
 	<div class="container">
@@ -285,6 +236,7 @@
 	</div>
 </section>
 <!-- end offer section -->
+
 <!-- Testimonial section -->
 <section class="client_section">
 	<div class="container-fluid">
@@ -303,54 +255,57 @@
 					</div>
 					<div id="customCarousel2" class="carousel slide" data-ride="carousel">
 						<div class="carousel-inner">
-							<div class="carousel-item active">
-								<div class="box">
-									<div class="img-box">
-										<img src="images/client-img.jpg" alt="">
-									</div>
-									<div class="detail-box">
-										<h4>
-											Gero Miliya
-										</h4>
-										<p>
-											long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it haslong established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it haslong established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has
-										</p>
-										<i class="fa fa-quote-left" aria-hidden="true"></i>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="box">
-									<div class="img-box">
-										<img src="images/client-img.jpg" alt="">
-									</div>
-									<div class="detail-box">
-										<h4>
-											Gero Miliya
-										</h4>
-										<p>
-											long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it haslong established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it haslong established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has
-										</p>
-										<i class="fa fa-quote-left" aria-hidden="true"></i>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="box">
-									<div class="img-box">
-										<img src="images/client-img.jpg" alt="">
-									</div>
-									<div class="detail-box">
-										<h4>
-											Gero Miliya
-										</h4>
-										<p>
-											long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it haslong established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it haslong established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has
-										</p>
-										<i class="fa fa-quote-left" aria-hidden="true"></i>
-									</div>
-								</div>
-							</div>
+
+							@{
+								if (Model != null)
+								{
+									int johan = 0;
+									foreach (var data in Model.testimonials)
+									{
+										if (johan == 0)
+										{
+											<div class="carousel-item active">
+												<div class="box">
+													<div class="img-box">
+														<img src="@data.TestimonialThumbnail" alt="">
+													</div>
+													<div class="detail-box">
+														<h4>
+															@data.TestimonialTitle
+														</h4>
+														<p>
+															@data.TestimonialDescription
+														</p>
+														<i class="fa fa-quote-left" aria-hidden="true"></i>
+													</div>
+												</div>
+											</div>
+										}
+										else
+										{
+											<div class="carousel-item">
+												<div class="box">
+													<div class="img-box">
+														<img src="@data.TestimonialThumbnail" alt="">
+													</div>
+													<div class="detail-box">
+														<h4>
+															@data.TestimonialTitle
+														</h4>
+														<p>
+															@data.TestimonialDescription
+														</p>
+														<i class="fa fa-quote-left" aria-hidden="true"></i>
+													</div>
+												</div>
+											</div>
+										}
+
+										johan++;
+									}
+								}
+							}
+
 						</div>
 						<div class="carousel_btn-box">
 							<a class="carousel-control-prev" href="#customCarousel2" role="button" data-slide="prev">
