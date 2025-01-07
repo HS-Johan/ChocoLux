@@ -26,13 +26,13 @@ namespace ChocoLux.Controllers
 
         public IActionResult Chocolates()
         {
-            var data = _context.Chocolate.ToList();
+            var data = _context.Chocolate.Where(obj => obj.ChocolateIsActive == true && obj.ChocolateAmmount > 0).ToList();
 
             return View(data);
         }
         public IActionResult Testimonial()
         {
-            var data = _context.Testimonial.ToList();
+            var data = _context.Testimonial.Where(obj => obj.TestimonialIsActive == true).ToList();
 
             return View(data);
         }
